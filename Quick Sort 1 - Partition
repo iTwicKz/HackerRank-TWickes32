@@ -12,17 +12,16 @@ public class Solution {
                   if(ar[i] < p){
                       fullArr[j] = ar[i];
                       j++;
-                  }
-                  else if(ar[i] > p){
-                      fullArr[k] = ar[i];
-                      k++;
-                  }
-                  fullArr[ar.length/2] = p;
-              }
-              
-              
-             
-              
+                  } }
+              fullArr[j] = p; j++;
+              for(int i = 1; i < ar.length; i++){
+                  if(ar[i] > p){
+                      fullArr[j] = ar[i];
+                      j++;
+                  } }
+                  
+                  
+       
     printArray(fullArr); 
 }
           
