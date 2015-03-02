@@ -5,38 +5,27 @@ public class Solution {
           static void partition(int[] ar) {
               
               int p = ar[0];
-              int[] preNums = new int[ar.length/2];
-              int[] postNums = new int[ar.length/2];
+              int[] fullArr = new int[ar.length];
               
-              int j = 0; int k = 0;
+              int j = 0; int k = ar.length/2 + 1;
               for(int i = 1; i < ar.length; i++){
                   if(ar[i] < p){
-                      preNums[j] = ar[i];
+                      fullArr[j] = ar[i];
                       j++;
                   }
                   else if(ar[i] > p){
-                      postNums[k] = ar[i];
+                      fullArr[k] = ar[i];
                       k++;
                   }
+                  fullArr[ar.length/2] = p;
               }
-              int[] fullArr = new int[ar.length];
               
-              int index = 0;
-              for(int i = 0; i < preNums.length; i++){
-                  fullArr[i] = preNums[i];
-                  index++;
-              }
-              fullArr[index] = p;
-              index++;
-              for(int i = 0; i < postNums.length; i++){
-                  fullArr[index] = postNums[i];
-                  index++;
-                  
               
-              }
-              printArray(fullArr);
+             
               
-       }   
+    printArray(fullArr); 
+}
+          
  
  static void printArray(int[] ar) {
          for(int n: ar){
