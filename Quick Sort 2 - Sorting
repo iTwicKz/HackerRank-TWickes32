@@ -1,0 +1,56 @@
+
+import java.util.*;
+public class Solution {
+       
+static int partition(int[] ar, int left, int right){
+    
+    int p = ar[left];
+    int[] fullArr = new int[right - left];
+    int index = 0;
+    for(int i = left; i < right; i++ )
+        if(ar[i] < p){
+            fullArr[index] = ar[i];
+            index++;
+    }
+    fullArr[index] = p;
+    int endLeft = index; index++;
+    for(int i = left; i < right; i++ )
+        if(ar[i] > p){
+            
+            fullArr[index] = ar[i];
+            index++;
+    }
+    printArray(fullArr);
+    
+    return endLeft;
+}
+    
+    static void quickSort(int[] ar, int left, int right){
+        int index = partition(ar, left, right);
+        if(index < index - 1){
+            quickSort(ar, left, index);
+        }
+        if(right > index + 2){
+            quickSort(ar, index + 2, right);
+        }
+            
+ 
+    }
+ 
+ static void printArray(int[] ar) {
+         for(int n: ar){
+            System.out.print(n+" ");
+         }
+           System.out.println("");
+      }
+       
+      public static void main(String[] args) {
+           Scanner in = new Scanner(System.in);
+           int n = in.nextInt();
+           int[] ar = new int[n];
+           for(int i=0;i<n;i++){
+              ar[i]=in.nextInt(); 
+           }
+           quickSort(ar, 0, ar.length);
+       }    
+   }
