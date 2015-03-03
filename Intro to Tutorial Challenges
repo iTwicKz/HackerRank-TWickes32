@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int V = input.nextInt();
+        int n = input.nextInt();
+        int[] ar = new int[n];
+        for(int i = 0; i < n; i++){
+            ar[i] = input.nextInt();
+        }
+        int location = -1;
+        for(int i = 0; i < n; i++){
+            if(ar[i] == V){
+                location = i;
+                break;
+            }
+        }
+        System.out.println(location);
+        
+    }
+}
