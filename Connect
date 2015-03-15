@@ -1,0 +1,104 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input = new Scanner(System.in);
+        int rows = input.nextInt();
+        int columns = input.nextInt();
+        
+        int[][] mat = new int[rows][columns];
+        
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                mat[i][j] = input.nextInt();
+            }
+        }
+        
+        
+        int regionSize = regionValue(mat, rows, columns);
+           }
+    
+    static int regionValue(int[][] mat, int i, int j, int rows, int columns){
+        int[][] hitMap = new int[rows][columns];
+        
+        for(int k = 0; k < rows; k++){
+            for(int l = 0; l < columns; l++){
+                hitmap[k][l] = 0;
+            }
+        }
+        
+        int count = 0;
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                if(mat[i][j] == 1){
+                    adRL
+                }
+            }
+        }
+    }
+    
+    static boolean adTB(int[][] mat, int i, int j){
+        if(i == 0){
+            if(mat[i + 1][j] == 1) return true;
+        }
+        if(i == mat.length){
+            if(mat[i - 1][j] == 1) return true;
+        }
+        if(mat[i + 1][j] == 1 || mat[i - 1][j] == 1){
+            return true;
+        }
+        return false;
+    }
+    
+    static boolean adTB(int[][] mat, int i, int j){
+        if(j == 0){
+            if(mat[i][j + 1] == 1) return true;
+        }
+        if(j == mat[0].length){
+            if(mat[i][j - 1] == 1) return true;
+        }
+        if(mat[i][j + 1] == 1 || mat[i][j - 1] == 1){
+            return true;
+        }
+        return false;
+    }
+    
+    static boolean adDD(int[][] mat, int i, int j){
+        if(i == 0 && j == 0){
+            if(mat[i + 1][j + 1] == 1) return true;
+        }
+        if(i == 0 && j == mat[0].length){
+            if(mat[i + 1][j - 1] == 1) return true;
+        }
+        if(i == mat.length && j == mat[0].length){
+            if(mat[i - 1][j - 1] == 1) return true;
+        }
+        if(i == mat.length && j == 0){
+            if(mat[i - 1][j + 1] == 1) return true;
+        }
+        if(i == 0){
+            if(mat[i + 1][j + 1] == 1) return true;
+            if(mat[i + 1][j - 1] == 1) return true;
+        }
+        if(i == mat.length){
+            if(mat[i - 1][j + 1] == 1) return true;
+            if(mat[i - 1][j - 1] == 1) return true;
+        }
+        if(j == 0){
+            if(mat[i + 1][j + 1] == 1) return true;
+            if(mat[i - 1][j + 1] == 1) return true;
+        }
+        if(j == mat[0].length){
+            if(mat[i + 1][j - 1] == 1) return true;
+            if(mat[i - 1][j - 1] == 1) return true;
+        }
+        
+        return false;
+    }
+}
