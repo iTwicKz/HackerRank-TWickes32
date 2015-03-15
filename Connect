@@ -19,17 +19,12 @@ public class Solution {
                 mat[i][j] = input.nextInt();
             }
         }
-        
-        
-        int regionSize = regionValue(mat, rows, columns);
-           }
     
-    static int regionValue(int[][] mat, int i, int j, int rows, int columns){
         int[][] hitMap = new int[rows][columns];
         
         for(int k = 0; k < rows; k++){
             for(int l = 0; l < columns; l++){
-                hitmap[k][l] = 0;
+                hitMap[k][l] = 0;
             }
         }
         
@@ -38,11 +33,11 @@ public class Solution {
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
                 if(mat[i][j] == 1){
-                    if(adTB(mat, i j) || adLR(mat, i j) || adDD(mat, i j)){
-                        if(adTB(hitMap, i j) || adLR(hitMap, i j) || adDD(hitMap, i j) || !hit){
+                    if(adTB(mat, i, j) || adLR(mat, i, j) || adDD(mat, i, j)){
+                        if(adTB(hitMap, i, j) || adLR(hitMap, i, j) || adDD(hitMap, i, j) || !hit){
                             hit = true;
                             count++;
-                            hitmap[i][j] == 1;
+                            hitMap[i][j] = 1;
                         }
                      }
                 }
@@ -55,9 +50,11 @@ public class Solution {
     static boolean adTB(int[][] mat, int i, int j){
         if(i == 0){
             if(mat[i + 1][j] == 1) return true;
+            else return false;
         }
         if(i == mat.length){
             if(mat[i - 1][j] == 1) return true;
+            else return false;
         }
         if(mat[i + 1][j] == 1 || mat[i - 1][j] == 1){
             return true;
@@ -68,9 +65,11 @@ public class Solution {
     static boolean adLR(int[][] mat, int i, int j){
         if(j == 0){
             if(mat[i][j + 1] == 1) return true;
+            else return false;
         }
         if(j == mat[0].length){
             if(mat[i][j - 1] == 1) return true;
+            else return false;
         }
         if(mat[i][j + 1] == 1 || mat[i][j - 1] == 1){
             return true;
@@ -81,33 +80,45 @@ public class Solution {
     static boolean adDD(int[][] mat, int i, int j){
         if(i == 0 && j == 0){
             if(mat[i + 1][j + 1] == 1) return true;
+            else return false;
         }
         if(i == 0 && j == mat[0].length){
             if(mat[i + 1][j - 1] == 1) return true;
+            else return false;
         }
         if(i == mat.length && j == mat[0].length){
             if(mat[i - 1][j - 1] == 1) return true;
+            else return false;
         }
         if(i == mat.length && j == 0){
             if(mat[i - 1][j + 1] == 1) return true;
+            else return false;
         }
         if(i == 0){
             if(mat[i + 1][j + 1] == 1) return true;
             if(mat[i + 1][j - 1] == 1) return true;
+            else return false;
         }
         if(i == mat.length){
             if(mat[i - 1][j + 1] == 1) return true;
             if(mat[i - 1][j - 1] == 1) return true;
+            else return false;
         }
         if(j == 0){
             if(mat[i + 1][j + 1] == 1) return true;
             if(mat[i - 1][j + 1] == 1) return true;
+            else return false;
         }
         if(j == mat[0].length){
             if(mat[i + 1][j - 1] == 1) return true;
             if(mat[i - 1][j - 1] == 1) return true;
+            else return false;
         }
         
-        return false;
+       if(mat[i + 1][j + 1] == 1) return true;
+       if(mat[i - 1][j - 1] == 1) return true;
+       if(mat[i - 1][j + 1] == 1) return true;
+       if(mat[i + 1][j - 1] == 1) return true;
+       return false;
     }
 }
