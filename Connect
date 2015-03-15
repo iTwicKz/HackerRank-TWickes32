@@ -52,7 +52,7 @@ public class Solution {
             if(mat[i + 1][j] == 1) return true;
             else return false;
         }
-        if(i == mat.length){
+        if(i == mat.length - 1){
             if(mat[i - 1][j] == 1) return true;
             else return false;
         }
@@ -67,7 +67,7 @@ public class Solution {
             if(mat[i][j + 1] == 1) return true;
             else return false;
         }
-        if(j == mat[0].length){
+        if(j == mat[0].length - 1){
             if(mat[i][j - 1] == 1) return true;
             else return false;
         }
@@ -82,15 +82,15 @@ public class Solution {
             if(mat[i + 1][j + 1] == 1) return true;
             else return false;
         }
-        if(i == 0 && j == mat[0].length){
+        if(i == 0 && j == mat[0].length - 1){
             if(mat[i + 1][j - 1] == 1) return true;
             else return false;
         }
-        if(i == mat.length && j == mat[0].length){
+        if(i == mat.length - 1 && j == mat[0].length - 1){
             if(mat[i - 1][j - 1] == 1) return true;
             else return false;
         }
-        if(i == mat.length && j == 0){
+        if(i == mat.length - 1 && j == 0){
             if(mat[i - 1][j + 1] == 1) return true;
             else return false;
         }
@@ -99,7 +99,7 @@ public class Solution {
             if(mat[i + 1][j - 1] == 1) return true;
             else return false;
         }
-        if(i == mat.length){
+        if(i == mat.length - 1){
             if(mat[i - 1][j + 1] == 1) return true;
             if(mat[i - 1][j - 1] == 1) return true;
             else return false;
@@ -109,7 +109,7 @@ public class Solution {
             if(mat[i - 1][j + 1] == 1) return true;
             else return false;
         }
-        if(j == mat[0].length){
+        if(j == mat[0].length - 1){
             if(mat[i + 1][j - 1] == 1) return true;
             if(mat[i - 1][j - 1] == 1) return true;
             else return false;
