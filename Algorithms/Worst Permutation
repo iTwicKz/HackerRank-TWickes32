@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+              
+        Scanner input = new Scanner(System.in);
+        
+        int size = input.nextInt();
+        int swapsAllowed = input.nextInt();
+        
+        int[] ar = new int[size];
+        for(int i = 0; i < size; i++){
+            ar[i] = input.nextInt();
+        }
+        
+        printArray(worstPerm(ar, swapsAllowed));
+        
+    }
+    
+    static int[] worstPerm(int[] ar, int swaps){
+        
+        for(int i = 0; i < swaps; i++){
+        // does amount of swaps
+            
+            int max = 0; int maxIndex = 0;
+            for(int j = i; j < ar.length; j++){
+                if(ar[j] > max){
+                    max = ar[j];
+                    maxIndex = j;
+                }
+            }
+            
+            int temp = ar[i];
+            ar[i] = max;
+            ar[maxIndex] = temp;            
+            
+        }
+        
+        return ar;
+    }
+    
+    static void printArray(int[] ar){
+        
+        for(int i = 0; i < ar.length; i++){
+            System.out.print(ar[i] + " ");
+        }
+    }
+}

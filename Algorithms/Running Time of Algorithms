@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void insertionSortPart2(int[] ar)
+    {       
+           int count = 0;
+        for(int i = 1; i < ar.length; i++){
+            int temp = ar[i];
+            boolean ran = false;
+            int j = i - 1;
+            while(temp < ar[j]){
+                ran = true;
+                ar[j + 1] = ar[j];
+                j--;
+                count++;
+                if(j == -1){
+                    break;
+                }
+            }
+            
+            if(ran){
+                
+                ar[j + 1] = temp;
+              
+                }
+           
+            
+        }
+       
+      System.out.println(count);
+    }
+    
+    
+      
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+       int s = in.nextInt();
+       int[] ar = new int[s];
+       for(int i=0;i<s;i++){
+            ar[i]=in.nextInt(); 
+       }
+       insertionSortPart2(ar);    
+                    
+    }    
+ 
+}
